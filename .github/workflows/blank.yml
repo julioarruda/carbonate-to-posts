@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened]
+
+jobs:
+  carbonate:
+    runs-on: ubuntu-latest
+    name: Generate beautiful images for code blocks present in issues
+    steps:
+      - name: Generate beautiful images for code blocks present in issues
+        uses: callmekatootie/carbonate@v1.0.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          imgur-client-id: ${{ secrets.IMGUR_CLIENT_ID }}
